@@ -1,0 +1,107 @@
+#include<iostream>
+using namespace std;
+
+// funkcija za zbroj
+int zbroj(int a, int b) {
+	return a + b;
+}
+
+//funkcija za razliku
+int razlika(int a, int b) {
+	return a - b;
+}
+
+//funkcija za umnozak
+int umnozak(int a, int b) {
+	return a*b;
+}
+
+//funkcija za kvocijent
+double kvocijent(int a, int b) {
+	return (double)a / b;
+}
+
+//funkccija za najveceg zajednickog dijeljitelja
+int dijeljitelj(int a, int b) {
+
+	while (a != b)
+	{
+		if (a > b)
+		{
+			a = a - b;
+		}
+		else
+		{
+			b = b - a;
+		}
+	}
+	return a;
+}
+
+//najmanji zajednicki visekratnik
+int visekratnik(int a, int b) {
+
+	for (int i = a; i < a*b; i++)
+	{
+		if (i % a == 0 && i % b == 0)
+		{
+			return i;
+			break;
+		}
+
+	}
+}
+
+
+int main() {
+
+	char dalje;
+
+	do
+	{
+
+		int broj1;
+		cout << "Unesite prvi broj: ";
+		cin >> broj1;
+
+		int broj2;
+		cout << "Unesite drugi broj: ";
+		cin >> broj2;
+
+		int operacija;
+		cout << "Unesite operaciju: " << endl << "1.zbroj" << endl << "2.razlika" << endl << "3.umnozak" << endl << "4.kvocijent" << endl << "5.najveci zajednicki dijelitelj" << endl << "6.najmanji zajednicki visekratnik" << endl;
+		cin >> operacija;
+
+
+		switch (operacija)
+		{
+		case 1:
+			cout << "Zbroj " << broj1 << "+" << broj2 << "=" << zbroj(broj1, broj2) << endl;
+			break;
+
+		case 2:
+			cout << "Razlika " << broj1 << "-" << broj2 << "=" << razlika(broj1, broj2) << endl;
+			break;
+		case 3:
+			cout << "Umnozak " << broj1 << "*" << broj2 << "=" << umnozak(broj1, broj2) << endl;
+			break;
+		case 4:
+			cout << "Kvocijent " << broj1 << "/" << broj2 << "=" << kvocijent(broj1, broj2) << endl;
+			break;
+		case 5:
+			cout << "Najmanji zajednicki dijeljitelj brojeva " << broj1 << " i " << broj2 << " je: " << dijeljitelj(broj1, broj2) << endl;
+			break;
+		case 6:
+			cout << "Najmanji zajednicki visekratnik brojeva " << broj1 << " i " << broj2 << " je: " << visekratnik(broj1, broj2) << endl;
+			break;
+		default:
+			break;
+		}
+
+		cout << "Zelite li nastaviti dalje <d-da, n-ne>? ";
+		cin >> dalje;
+	} while (dalje == 'd');
+
+	cout << "KRAJ" << endl;
+	return 0;
+}
